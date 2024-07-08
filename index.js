@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
-const port = 3000;
-const loginRouter = require("./routers/loginRouter.js");
+const port = 3001;
+const userRouter = require("./routers/userRouter.js");
+const rankingRouter = require("./routers/rankingRouter.js");
+const bodyParser = require("body-parser");
 
-app.use("/", loginRouter);
+app.use(bodyParser.json());
+app.use("/api/user", userRouter);
+app.use("/api/rank", rankingRouter);
 
 app.listen(port, () => {
   console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
