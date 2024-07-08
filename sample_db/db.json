@@ -13,7 +13,7 @@
       "friend": []
     },
     {
-      "id": "114945935223681152227",
+      "id": "2",
       "name": "김철수[학생](소프트웨어융합대학 컴퓨터공학부)",
       "email": "chulsoo@khu.ac.kr",
       "photoUrl": null,
@@ -370,6 +370,18 @@
       "lose": 2,
       "tier": "Platinum",
       "tierPoint": 4000,
+      "friend": []
+    },
+    {
+      "id": "107565238802008768005",
+      "name": "Chad Hong",
+      "email": "zackinthebox@naver.com",
+      "photoUrl": null,
+      "serverAuthCode": null,
+      "win": 0,
+      "lose": 0,
+      "tier": "unRanked",
+      "tierPoint": 0,
       "friend": []
     }
   ]

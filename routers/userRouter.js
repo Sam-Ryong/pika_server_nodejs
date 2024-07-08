@@ -9,7 +9,7 @@ router.get("/:id", (req, res) => {
   const id = req.params.id;
   const db = JSON.parse(fs.readFileSync(filePath));
   const user = db.users.find((user) => user.id === id);
-
+  console.log(id);
   if (!user) {
     res.status(404).json(null);
   } else {
