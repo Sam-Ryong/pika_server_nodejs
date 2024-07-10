@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
       win: 0,
       lose: 0,
       tier: "unRanked",
-      tierPoint: 0,
+      tierPoint: 1000,
       friend: [],
     });
     fs.writeFileSync(filePath, JSON.stringify(db, null, 2), (err) => {
