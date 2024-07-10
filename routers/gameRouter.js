@@ -11,15 +11,16 @@ router.post("/", async (req, res) => {
   const loserId = req.body.loser;
   var winner = db.users.find((user) => user.id === winnerId);
   var loser = db.users.find((user) => user.id === loserId);
+  console.log("winner");
   console.log(winner);
+  console.log("loser");
   console.log(loser);
   if (winner != null && loser != null) {
     winner.tierPoint = winner.tierPoint + 20;
     winner.win = winner.win + 1;
     loser.tierPoint = loser.tierPoint - 20;
     loser.lose = loser.lose + 1;
-    console.log(winner.tierPoint);
-    console.log(loser.tierPoint);
+
     if (0 < winner.tierPoint < 1000) {
       winner.tier = "브론즈";
     } else if (1000 <= winner.tierPoint < 1300) {
