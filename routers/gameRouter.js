@@ -11,7 +11,8 @@ router.post("/", async (req, res) => {
   const loserId = req.body.loser;
   var winner = db.users.find((user) => user.id === winnerId);
   var loser = db.users.find((user) => user.id === loserId);
-
+  console.log(winner);
+  console.log(loser);
   if (winner != null && loser != null) {
     winner.tierPoint = winner.tierPoint + 20;
     winner.win = winner.win + 1;
