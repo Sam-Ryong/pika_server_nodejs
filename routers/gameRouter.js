@@ -11,41 +11,38 @@ router.post("/", async (req, res) => {
   const loserId = req.body.loser;
   var winner = db.users.find((user) => user.id === winnerId);
   var loser = db.users.find((user) => user.id === loserId);
-  console.log("winner");
-  console.log(winner);
-  console.log("loser");
-  console.log(loser);
+
   if (winner != null && loser != null) {
     winner.tierPoint = winner.tierPoint + 20;
     winner.win = winner.win + 1;
     loser.tierPoint = loser.tierPoint - 20;
     loser.lose = loser.lose + 1;
 
-    if (0 < winner.tierPoint < 1000) {
+    if (winner.tierPoint > 0 && winner.tierPoint < 1000) {
       winner.tier = "브론즈";
-    } else if (1000 <= winner.tierPoint < 1300) {
+    } else if (winner.tierPoint >= 1000 && winner.tierPoint < 1300) {
       winner.tier = "실버";
-    } else if (1300 <= winner.tierPoint < 1500) {
+    } else if (winner.tierPoint >= 1300 && winner.tierPoint < 1500) {
       winner.tier = "골드";
-    } else if (1500 <= winner.tierPoint < 1700) {
+    } else if (winner.tierPoint >= 1500 && winner.tierPoint < 1700) {
       winner.tier = "플레티넘";
-    } else if (1700 <= winner.tierPoint < 1900) {
+    } else if (winner.tierPoint >= 1700 && winner.tierPoint < 1900) {
       winner.tier = "다이아몬드";
-    } else if (1900 <= winner.tierPoint) {
+    } else if (winner.tierPoint >= 1900) {
       winner.tier = "마스터";
     }
 
-    if (0 < loser.tierPoint < 1000) {
+    if (loser.tierPoint > 0 && loser.tierPoint < 1000) {
       loser.tier = "브론즈";
-    } else if (1000 <= loser.tierPoint < 1300) {
+    } else if (loser.tierPoint >= 1000 && loser.tierPoint < 1300) {
       loser.tier = "실버";
-    } else if (1300 <= loser.tierPoint < 1500) {
+    } else if (loser.tierPoint >= 1300 && loser.tierPoint < 1500) {
       loser.tier = "골드";
-    } else if (1500 <= loser.tierPoint < 1700) {
+    } else if (loser.tierPoint >= 1500 && loser.tierPoint < 1700) {
       loser.tier = "플레티넘";
-    } else if (1700 <= loser.tierPoint < 1900) {
+    } else if (loser.tierPoint >= 1700 && loser.tierPoint < 1900) {
       loser.tier = "다이아몬드";
-    } else if (1900 <= loser.tierPoint) {
+    } else if (loser.tierPoint >= 1900) {
       loser.tier = "마스터";
     }
 
@@ -64,6 +61,7 @@ router.post("/", async (req, res) => {
     res.send("승부 데이터 저장 실패");
   }
 });
+
 function updateJsonById(array, id, newData) {
   const index = array.findIndex((item) => item.id === id);
   if (index !== -1) {
@@ -73,4 +71,5 @@ function updateJsonById(array, id, newData) {
     throw new Error(`ID ${id} not found`);
   }
 }
+
 module.exports = router;
