@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     winner.tierPoint = winner.tierPoint + 20;
     winner.win = winner.win + 1;
     loser.tierPoint = loser.tierPoint - 20;
-    loser.loser = loser.loser + 1;
+    loser.lose = loser.lose + 1;
     console.log(winner.tierPoint);
     console.log(loser.tierPoint);
     if (0 < winner.tierPoint < 1000) {
